@@ -794,9 +794,9 @@
             "uid": "prometheus"
           },
           "editorMode": "code",
-          "expr": "sum(increase(http_requests_total{route=\"/ping\", method=\"GET\", status!~\"3..\"}[$__range]))",
+          "expr": "sum(increase(http_requests_total{route=\"/ping\", method=\"GET\"}[$__range]))",
           "instant": false,
-          "legendFormat": "GET /ping in time range",
+          "legendFormat": "GET /ping Total",
           "range": true,
           "refId": "A"
         }
