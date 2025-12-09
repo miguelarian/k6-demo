@@ -254,9 +254,21 @@
           "legendFormat": "Average Response Time (2XX)",
           "range": true,
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "prometheus"
+          },
+          "editorMode": "code",
+          "expr": "rate(http_request_duration_seconds_sum{route=\"/ping\", method=\"GET\", status=\"5XX\"}[1m]) / rate(http_request_duration_seconds_count{route=\"/ping\", method=\"GET\", status=\"5XX\"}[1m]) * 1000",
+          "instant": false,
+          "legendFormat": "Average Response Time (5XX)",
+          "range": true,
+          "refId": "B"
         }
       ],
-      "title": "GET /ping 2XX Average Response Time (ms)",
+      "title": "GET /ping Average Response Time: 2XX vs 5XX (ms)",
       "type": "timeseries"
     },
     {

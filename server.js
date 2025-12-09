@@ -44,7 +44,7 @@ app.use(
   prometheusMiddleware({
     metricsPath: '/metrics', // Ruta donde Prometheus recolectará métricas
     collectDefaultMetrics: true, // Métricas predeterminadas del sistema
-    requestDurationBuckets: [0.1,1,2,3,4,5], // Buckets para la duración de las solicitudes
+    requestDurationBuckets: [0.01, 0.05, 0.1, 0.25, 0.5, 1, 1.5, 2, 3, 5, 10], // Buckets optimized for your app delays
   })
 );
 
