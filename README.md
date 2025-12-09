@@ -20,15 +20,15 @@ This project demonstrates different types of performance testing methodologies u
 - **600-700 requests**: 1.5s delay  
 - **700-800 requests**: 2s delay
 - **800-900 requests**: 3s delay
-- **900+ requests**: 5s delay
-- **1000+ requests**: Server collapse (500 errors)
+- **900+ requests**: 5s delay + **intermittent failures** (even-numbered requests return 500 errors)
+- **1000+ requests**: Complete server collapse (all requests return 500 errors)
 
 ```
-Response Time vs Request Count
+Response Time & Error Rate vs Request Count
                                     
 5s ┤                               ████████████████
-   │                               █
-3s ┤                         ██████
+   │                               █ ⚡ 50% errors
+3s ┤                         ██████  (even requests)
    │                         █
 2s ┤                   ██████
    │                   █
@@ -36,14 +36,19 @@ Response Time vs Request Count
    │             █
 1s ┤       ██████
    │       █
-0s ┤███████                                    💥 CRASH
+0s ┤███████                                    💥 100% errors
    └─┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬──────►
      0    500   600   700   800   900  1000  1100   Requests
      │     │     │     │     │     │     │
-     ✅    ⚠️     ⚠️     🔥    🔥    🔥    💀
-   Perfect Slow  Slower Very  Slower Slowest Dead
-           Start  ing    Slow   est
+     ✅    ⚠️     ⚠️     🔥    🔥    ⚡    💀
+   Perfect Slow  Slower Very  Slower Flaky Dead
+           Start  ing    Slow   est   Fails
 ```
+
+**Key Behavior Points:**
+- **900+ requests**: Server becomes **unreliable** - even-numbered requests (902, 904, 906...) return 500 errors
+- **1000+ requests**: **Complete failure** - all requests return 500 errors
+- **Intermittent failures** make this particularly interesting for testing error handling and retry logic
 
 #### Available Endpoints:
 - `GET /ping` - Main test endpoint (returns "pong")
