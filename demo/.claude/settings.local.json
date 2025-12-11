@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash('http://localhost:8081/v1/payments/payment-sessions' )",
+      "Bash(k6 run:*)"
+    ]
+  }
+}
