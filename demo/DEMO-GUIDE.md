@@ -9,18 +9,58 @@
 This script provides a menu-driven interface to run different test types with colored output and clear explanations.
 
 ### 2. **Individual Test Commands**
+
+#### **Smoke Test** - Basic functionality check
 ```bash
-# Smoke Test - Basic functionality check  
 k6 run payment-smoke.js
+```
+```
+VUs│
+ 3 ├████████████████████████████████
+ 2 │
+ 1 │
+ 0 └────────────────────────────────► Time (30s)
+```
 
-# Stress Test - Load capacity testing
+#### **Stress Test** - Load capacity testing
+```bash
 k6 run payment-stress.js
+```
+```
+VUs│
+40 │      ┌────────────┐
+30 │     ╱              ╲
+20 │    ╱                ╲
+10 │   ╱                  ╲
+ 0 └──╱────────────────────╲───────► Time (16m)
+     2m   5m      5m    2m
+```
 
-# Spike Test - Traffic spike simulation  
+#### **Spike Test** - Traffic spike simulation
+```bash
 k6 run payment-spike.js
+```
+```
+VUs│
+100│     ╭─────╮
+ 80│    ╱       ╲
+ 60│   ╱         ╲
+ 40│  ╱           ╲
+ 20│ ╱             ╲
+ 10├╱───────────────╲─────────► Time (100s)
+ 0 │10s 30s 20s 10s  30s
+```
 
-# Soak Test - Endurance testing
+#### **Soak Test** - Endurance testing
+```bash
 k6 run payment-soak.js
+```
+```
+VUs│
+15 ├████████████████████████████████████████
+10 │
+ 5 │
+ 0 └────────────────────────────────────────► Time (10m)
 ```
 
 ## 🎨 Nice Result Display Options
