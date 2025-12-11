@@ -17,8 +17,8 @@ export default () => {
   const res = http.get('http://localhost:8080/ping');
   
   check(res, {
-    'status es 200': (r) => r.status === 200,
-    'respuesta es pong': (r) => r.body === 'pong',
+    'status is 200': (r) => r.status === 200,
+    'response is pong': (r) => r.body === 'pong',
   });
 
   sleep(1);
