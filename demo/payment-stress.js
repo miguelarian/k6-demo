@@ -3,11 +3,11 @@ import { sleep, check } from 'k6';
 
 export const options = {
   stages: [
-    { duration: '2m', target: 20 }, // Ramp up to 20 users over 2 minutes
-    { duration: '5m', target: 20 }, // Stay at 20 users for 5 minutes
-    { duration: '2m', target: 40 }, // Ramp up to 40 users over 2 minutes  
-    { duration: '5m', target: 40 }, // Stay at 40 users for 5 minutes
-    { duration: '2m', target: 0 },  // Ramp down to 0 users
+    { duration: '15s', target: 20 }, // Ramp up to 20 users over 15 seconds
+    { duration: '30s', target: 20 }, // Stay at 20 users for 30 seconds
+    { duration: '15s', target: 40 }, // Ramp up to 40 users over 15 seconds  
+    { duration: '20s', target: 40 }, // Stay at 40 users for 20 seconds
+    { duration: '10s', target: 0 },  // Ramp down to 0 users
   ],
   thresholds: {
     http_req_failed: ['rate<0.05'], // http errors should be less than 5%

@@ -3,7 +3,7 @@ import { sleep, check } from 'k6';
 
 export const options = {
   vus: 15,            // Sustained load over time
-  duration: '10m',    // Long duration soak test  
+  duration: '90s',    // Demo duration soak test  
   thresholds: {
     http_req_failed: ['rate<0.02'], // http errors should be less than 2%
     http_req_duration: ['p(95)<600'], // 95% of requests should be below 600ms

@@ -4,10 +4,10 @@ import { sleep, check } from 'k6';
 export const options = {
   stages: [
     { duration: '10s', target: 10 },  // Normal load
-    { duration: '30s', target: 100 }, // Spike to 100 users
+    { duration: '20s', target: 100 }, // Spike to 100 users
     { duration: '20s', target: 100 }, // Stay at spike
     { duration: '10s', target: 10 },  // Return to normal
-    { duration: '30s', target: 10 },  // Normal load recovery
+    { duration: '20s', target: 10 },  // Normal load recovery
   ],
   thresholds: {
     http_req_failed: ['rate<0.1'], // Allow up to 10% errors during spike
