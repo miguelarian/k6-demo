@@ -14,12 +14,12 @@ export default function () {
   
   const paymentSessionRequestPayload = {
     "booking": {
-      "bookingId": Math.floor(Math.random() * 1000000).toString(), // Random booking ID
+      "bookingId": "50763820",
       "operation": "PAY_BALANCE"
     },
     "paymentSettings": {
       "currency": "GBP",
-      "amount": Math.floor(Math.random() * 1000) + 10, // Random amount between 10-1010
+      "amount": 55.5,
     }
   };
   

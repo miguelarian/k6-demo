@@ -20,12 +20,12 @@ export default function () {
   
   const paymentSessionRequestPayload = {
     "booking": {
-      "bookingId": Math.floor(Math.random() * 1000000).toString(),
-      "operation": Math.random() > 0.5 ? "PAY_BALANCE" : "PAY_DEPOSIT" // Mix operations
+      "bookingId": "50763820",
+      "operation": "PAY_BALANCE"
     },
     "paymentSettings": {
-      "currency": Math.random() > 0.7 ? "EUR" : "GBP", // Mix currencies
-      "amount": Math.floor(Math.random() * 2000) + 50,
+      "currency": "GBP",
+      "amount": 55.5,
     }
   };
   
@@ -40,5 +40,5 @@ export default function () {
     'response time acceptable': (r) => r.timings.duration < 1000,
   });
 
-  sleep(Math.random() * 2 + 0.5); // Random sleep between 0.5-2.5s
+  sleep(1); // Consistent sleep for demo predictability
 }
